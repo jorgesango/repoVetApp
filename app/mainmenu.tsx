@@ -1,4 +1,4 @@
-import { View, Text, Pressable, TextInput } from "react-native";
+import { View, Text, Pressable, FlatList} from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
@@ -57,7 +57,6 @@ export default function MainMenu() {
                 :
                     <Text className=" text-white">Waiting...</Text>
                 }
-                
             </View>
 
             <Pressable className="bg-stone-500 px-6 py-3 rounded-full active:bg-[#a19898] mb-6" onPress={handleGoToNewAnimal}>
