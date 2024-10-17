@@ -1,8 +1,10 @@
-import { View, Text, Pressable, FlatList} from "react-native";
+import { View, Text, Pressable, ScrollView, Dimensions} from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../AppAuth";
+
+const windowHeight = Dimensions.get('window').height;
 
 export default function MainMenu() {
     const [petData, setPetData] = useState<any>([])
@@ -38,25 +40,28 @@ export default function MainMenu() {
         getPetData()
     }, [])
     return (
-        <View className=" grow items-center bg-black">
+        <View className=" grow items-center px-10 bg-black">
             <View className=" pt-10">
                 <Text className=" text-3xl text-white py-3">Main Menu</Text>
             </View>
-
-            <View className="items-center">
-                {petData[0] ?
-                    petData.map((pet: any, index: any) => (
-                        <Pressable
-                            key={index}
-                            onPress={() => handlePetSelected({index})}
-                            className="mb-5"
-                        >
-                            <Text className="text-lg text-white">{pet.name}</Text>
-                        </Pressable>
-                    ))
-                :
-                    <Text className=" text-white">Waiting...</Text>
-                }
+            <View className="w-full rounded-2xl mb-5 bg-[#3b3b3b]" style={{height: windowHeight - 200}}>
+                <ScrollView className="w-full">
+                    <View className="items-center">
+                        {petData[0] ?
+                            petData.map((pet: any, index: any) => (
+                                <Pressable
+                                    key={index}
+                                    onPress={() => handlePetSelected({index})}
+                                    className="mb-5"
+                                >
+                                    <Text className="text-lg text-white">{pet.name}</Text>
+                                </Pressable>
+                            ))
+                        :
+                            <Text className=" text-white">Waiting...</Text>
+                        }
+                    </View>
+                </ScrollView>
             </View>
 
             <Pressable className="bg-stone-500 px-6 py-3 rounded-full active:bg-[#a19898] mb-6" onPress={handleGoToNewAnimal}>
