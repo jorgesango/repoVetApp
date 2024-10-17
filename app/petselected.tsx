@@ -1,14 +1,17 @@
-import { View, Text} from "react-native";
+import { View, Text, Image } from "react-native";
 import { router, useLocalSearchParams, useUnstableGlobalHref } from "expo-router";
 
 export default function PetSelected() {
     const {name, age, url} = useLocalSearchParams();
     const UrlObject = url as string;
     return (
-        <View>
+        <View className="items-center pt-10">
             <Text>{name}</Text>
             <Text>{age}</Text>
-            {/* <img src={UrlObject}  alt="" /> */}
+            <Image
+                source={{uri: UrlObject}}
+                className="w-40 h-40 rounded-xl"
+            />
         </View>
     )
 
