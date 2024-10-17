@@ -7,8 +7,8 @@ import Toast from "react-native-toast-message";
 
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("jorge@gmail.com");
+    const [password, setPassword] = useState("123456");
 
     const handleLogin = async () => {
         try {
@@ -55,8 +55,7 @@ export default function Login() {
 
                     <TextInput 
                         className="bg-white text-black rounded-xl w-full mb-2 border-2 border-[#939393]"
-                        // value={email}
-                        value={"jorge@gmail.com"}
+                        value={email}
                         onChangeText={setEmail}
                         placeholder="Example@gmail.com"
                         secureTextEntry={false}
@@ -66,8 +65,7 @@ export default function Login() {
                     <Text className=" right-16 font-semibold">Password</Text>
                     <TextInput 
                         className="bg-white text-black py-2 px-12 rounded-xl mb-2 border-2 border-[#939393]"
-                        // value={password}
-                        value={"123456"}
+                        value={password}
                         onChangeText={setPassword}
                         placeholder="••••••"
                         secureTextEntry={true}
