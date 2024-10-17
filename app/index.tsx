@@ -1,4 +1,3 @@
-import "../global.css";
 import { View, Text, Pressable, TextInput, Image } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import {signInWithEmailAndPassword } from "firebase/auth";
