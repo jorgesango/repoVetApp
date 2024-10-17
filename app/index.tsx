@@ -1,9 +1,11 @@
+import "../global.css";
 import { View, Text, Pressable, TextInput, Image } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../AppAuth";
 import { useState } from "react";
 import Toast from "react-native-toast-message";
+
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -84,6 +86,7 @@ export default function Login() {
                 <Text className=" text-sm text-[#2545AB] underline">Sign Up</Text>
             </Pressable>
         </View>
+        <View></View>
         <Toast/>
         </>
         
