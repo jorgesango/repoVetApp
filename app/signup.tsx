@@ -31,7 +31,7 @@ export default function Signup() {
 
     const handleGoToLogin = () => {
         router.push({
-            pathname: "index",
+            pathname: "/",
         });
     }
 
