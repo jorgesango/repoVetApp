@@ -1,15 +1,19 @@
-import { View, Text, Pressable, TextInput, Image } from "react-native";
+import { View, Text, Pressable, TextInput, Image} from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../AppAuth";
 import { useState } from "react";
 import Toast from "react-native-toast-message";
+import Feather from '@expo/vector-icons/Feather';
+
+
 
 
 
 export default function Login() {
     const [email, setEmail] = useState("jorge@gmail.com");
     const [password, setPassword] = useState("123456");
+    const [showPass, setShowPass] = useState(false)
 
     const handleLogin = async () => {
         try {
@@ -32,6 +36,10 @@ export default function Login() {
         router.push({
             pathname: "signup",
         });
+    }
+
+    const handleShowPass = () => {
+        setShowPass(!showPass)
     }
 
 
@@ -76,13 +84,20 @@ export default function Login() {
 
                         {/* container exclusively for the text input */}
                         <View className=" w-full">
-                            <TextInput 
-                                className="bg-white text-black px-4 rounded-[20px] h-12 w-full mb-2 border-2 border-[#939393]"
-                                value={password}
-                                onChangeText={setPassword}
-                                placeholder="••••••"
-                                secureTextEntry={true}
-                            />
+                            <View className=" items-center justify-center flex flex-row bg-white text-black px-4 rounded-[20px] h-12 w-full mb-2 border-2 border-[#939393]">
+                                <TextInput 
+                                    className=" w-11/12"
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    placeholder="••••••"
+                                    secureTextEntry={!showPass}
+                                />
+
+                                <Pressable onPress={handleShowPass}>
+                                    <Feather name = {showPass ? "eye" : "eye-off"} className=" W-1/12" size={24} color="black" />
+                                </Pressable>
+
+                            </View>    
                         </View>
                     </View>
 

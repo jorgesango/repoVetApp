@@ -6,7 +6,7 @@ export default function Route() {
                 name="index" 
                 options={{
                     headerShown: false,
-                    animation: "slide_from_bottom",
+                    animation: "fade_from_bottom",
                 }}
             />
             <Stack.Screen 
