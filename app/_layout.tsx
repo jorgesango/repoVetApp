@@ -13,6 +13,7 @@ export default function Route() {
                 name="signup" 
                 options={{
                     headerShown: false,
+                    animation: "slide_from_bottom"
                 }}
             />
             

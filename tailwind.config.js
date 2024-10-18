@@ -4,7 +4,11 @@ module.exports = {
     "./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-  extend: {},
+  extend: {
+    fontFamily: {
+      assistant: ['Assistant'],
+      }
+  },
   },
   plugins: [],
 }
