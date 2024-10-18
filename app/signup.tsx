@@ -11,12 +11,18 @@ import Feather from '@expo/vector-icons/Feather';
 export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [name, setName] = useState("")
+    const [namef, setNamef] = useState("")
     const [showPass, setShowPass] = useState(false)
    
 
     const handleSignUp = async () => {
         try {
+            if (namef == "" || email == "" || password == ""){
+                alert (
+                    "Ups, seems you forgot to type something" 
+                )
+                return
+            }
             await createUserWithEmailAndPassword(auth, email, password);
             console.log("succesfully created user");
             router.push({
@@ -69,8 +75,8 @@ export default function Signup() {
                         <View className=" w-full">
                             <TextInput 
                                 className="bg-white text-black px-4 rounded-[20px] h-12 w-full mb-2 border-2 border-[#939393]"
-                                value={name}
-                                onChangeText={setName}
+                                value={namef}
+                                onChangeText={setNamef}
                                 placeholder="Your name goes here"
                                 secureTextEntry={false}
                             />

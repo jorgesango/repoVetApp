@@ -54,7 +54,7 @@ export default function PetSelected() {
 
                 <View className=" w-full items-center justify-center pt-2">
                     <Text className=" text-2xl font-bold text-[#0E2366]">{name[0].toUpperCase() + name.slice(1)}</Text>
-                    <Text className=" text-[#5C6885]">{`Age:${age} years old `}</Text>
+                    <Text className=" text-[#5C6885]">{`Age: ${age} years old `}</Text>
                 </View>
             </View>
         </View>
