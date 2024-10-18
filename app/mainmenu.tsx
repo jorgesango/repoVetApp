@@ -45,11 +45,11 @@ export default function MainMenu() {
 
     return (
         // background with all the divisions
-        <View className="grow flex flex-col items-center px-10 pt-12 bg-[#DAE4FE]">
+        <View className="grow flex flex-col px-10 pt-12 bg-[#DAE4FE]">
 
-            <View className=" items-end justify-end absolute w- h-[60%] border-2 z-10">
-                <Pressable>
-                    <AntDesign name="pluscircle" size={24} color="black" />
+            <View className=" items-end justify-end absolute z-10 right-12 top-[70%]">
+                <Pressable onPress={handleGoToNewAnimal}>
+                    <AntDesign name="pluscircle" size={70} color="#0E2366" />
                 </Pressable>
             </View>
 
